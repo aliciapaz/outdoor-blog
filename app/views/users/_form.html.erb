@@ -11,7 +11,12 @@
     </div>
   <% end %>
 
+  <div>
+    <%= form.label(:name, "Name: ") %>
+      <%= form.text_field :name, placeholder: "sandycheeks123" %><br>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit('Log in') %>
   </div>
 <% end %>
