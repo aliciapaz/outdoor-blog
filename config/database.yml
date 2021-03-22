@@ -1,8 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: nevinson
-  # password: ilovecamping
+
   pool: 5 %>
 
 development:
@@ -16,5 +15,3 @@ test:
 production:
   <<: *default
   database: outdoor-blog_production
-  # username: username
-  # password: <%= ENV['PROJECT_DATABASE_PASSWORD'] %>
