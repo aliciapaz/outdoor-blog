@@ -1,14 +1,20 @@
-<nav class="navbar navbar-expand my-0">
-  <div class="container-fluid">
-    <div><a href="#" class="navbar-brand">OutdoorLife</a><i class="fas fa-campground"></i></div>
-    <div ></div>
-    <ul>
-      <li class='navbar-item'><%=navbar_button_sign_up%></li>
-      <li class='navbar-item'><%=navbar_button_login%></li>
-      <li class='navbar-item'><%=navbar_button_name%></li>
-      <li class='navbar-item'><%=navbar_button_logout%></li>  
-    </ul>
+<nav class='flex'>
+      <div class="navbar-link"><a class='navbar-brand' href="#">Outd<i class="brand-bike fas fa-biking"></i>rLife</a></div>
+      <div class='navbar-link navbar-category-links'>
+        <a class='navbar-link navbar-home' href="#">HOME</a>
+        <a class='navbar-link' href="#">BIKING</a>
+        <a class='navbar-link' href="#">CAMPING</a>
+        <a class='navbar-link' href="#">TREKKING</a>
+        <a class='navbar-link' href="#">BIRD WATCHING</a>
+      </div>
+      <div class="navbar-session-links flex">
+        <%=navbar_button_login%>
+        <p class='link-separator'>|</p>
+        <%=navbar_button_sign_up%>
+        <%=navbar_button_name%>
+        <%=navbar_button_logout%>
+        <div class="navbar-link"><i class="fas fa-search"></i></div>
+      </div>
     
-  </div>
 
 </nav>

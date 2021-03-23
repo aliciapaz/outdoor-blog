@@ -14,4 +14,81 @@
  *= require_self
  */
 
- 
+ /* reset */
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+ footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  margin: 0;
+  box-sizing: border-box;
+}
+ol, ul {
+	list-style: none;
+}
+a {
+  text-decoration: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* wide */ 
+
+.flex {
+  display: flex;
+}
+
+/* navigation bar */
+
+nav {
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+ .navbar-link {
+  margin: 1.5rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: #847F7B;
+ }
+
+ .navbar-brand {
+  font-size: 1.5rem;
+  position: relative;
+  bottom: 6px;
+  color: #4C433D;
+ }
+
+ .brand-bike {
+  position: relative;
+  bottom: 4px;
+  color:#cdc733
+ }
+
+ .navbar-home {
+   color:#FA6000;
+ }
+
+ .navbar-session-links {
+  justify-content: space-between;
+ }
+
+.link-separator {
+  font-family: 'Montserrat', sans-serif;
+  color: #847F7B;
+  position: relative;
+  top: 4px;
+}
