@@ -1,11 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:all) do
-    @user = create(:user)
-  end
     it 'is valid with a name' do
-      expect(@user).to be_valid
+      expect(User.new(name: 'Sponge Bob')).to be_valid
     end
 
     it 'is not valid with a short name' do
@@ -16,5 +13,8 @@ RSpec.describe User, type: :model do
       expect(User.new(name: 'This is a very very very long name')).to_not be_valid
     end
 
-    ## add callback test!!! 
+    it 'normalizes a name' do
+      @user = User.create(name: 'jAnE dOe')
+      expect(@user.name).to eq('Jane Doe')
+    end
 end
