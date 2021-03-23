@@ -1,17 +1,24 @@
 module ApplicationHelper
   def navbar_button_login
-    link_to 'LOGIN', '/login' if session[:current_user].nil?
+    link_to 'LOGIN', '/login' unless user_signed_in?
   end
 
-  def navbar_bubtton_sign_in
-    link_to 'REGISTER', '/login' if session[:current_user].nil?
+  def navbar_button_sign_up
+    link_to 'REGISTER', signup_path unless user_signed_in?
   end
 
   def navbar_button_logout
-    link_to 'LOGOUT' '/logout' unless session[:curent_user].nil?
+    button_to 'LOGOUT', logout_path, { method: :delete, data: { confirm: 'Are you sure?' } } if user_signed_in?
   end
 
   def navbar_button_name
-    # link_to Logout '/logout' if session[:curent_user] != nil
+    link_to current_user.name, user_path(current_user) if user_signed_in?
   end
+
+  private
+
+  def user_signed_in?
+    !current_user.nil?
+  end
+
 end

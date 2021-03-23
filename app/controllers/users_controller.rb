@@ -14,19 +14,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        sessions[:curent_user] = User.find(@user[:id])
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @user.save
+      session[:user_id] = User.find(@user[:id])
+      redirect_to root_path, notice: 'Login sucessful'
+    else
+      render :new
     end
-  end
-
-  def logout
-    sessions[:current_user] = nil
-    redirect_to root_path
   end
 
   private

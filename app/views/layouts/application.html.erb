@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" %>
+    <%
+=begin%>
+ <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" %> 
+<%
+=end%>
     <%= stylesheet_link_tag "https://pro.fontawesome.com/releases/v5.10.0/css/all.css" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,6 +18,11 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <% flash.each do |type, msg| %>
+      <div class= "alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
     
     <%= yield %>
 

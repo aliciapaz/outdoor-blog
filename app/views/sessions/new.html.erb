@@ -1,0 +1,10 @@
+<%= form_with(url: 'login') do |form| %>
+  <div>
+    <%= form.label(:name, "Username: ") %><br>
+    <%= form.text_field :name, placeholder: "sandycheeks123" %><br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit('Log in') %>
+  </div>
+<% end %>

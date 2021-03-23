@@ -13,6 +13,10 @@ RSpec.describe User, type: :model do
     expect(User.new(name: 'This is a very very very long name')).to_not be_valid
   end
 
+  # it 'is not valid if not unique' do
+    
+  # end
+
   it 'normalizes a name' do
     @user = User.create(name: 'jAnE dOe')
     expect(@user.name).to eq('Jane Doe')
