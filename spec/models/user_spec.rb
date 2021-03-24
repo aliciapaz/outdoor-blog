@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   end
 
   # it 'is not valid if not unique' do
-    
+
   # end
 
   it 'normalizes a name' do

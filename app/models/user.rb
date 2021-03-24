@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :articles
+  has_many :articles, dependent: :destroy, foreign_key: 'author_id'
   has_many :votes, dependent: :destroy
   has_many :voted_articles, through: :votes, source: :article
 
@@ -13,5 +13,4 @@ class User < ApplicationRecord
   def normalize_name
     self.name = name.downcase
   end
-
 end
