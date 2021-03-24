@@ -19,4 +19,8 @@ class Article < ApplicationRecord
   def self.most_popular(votes_by_article)
     find(votes_by_article.keys[0])
   end
+
+  def self.last_by_category(categories, index)
+    where(category_id: categories[index]).order(created_at: :desc).first  
+  end
 end

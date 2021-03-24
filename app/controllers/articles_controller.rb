@@ -7,9 +7,9 @@ class ArticlesController < ApplicationController
     @votes_by_category = Vote.count_by_category
     @prioritized_categories = Category.prioritize(@votes_by_category).ids
     @featured = Article.most_popular(@votes_by_article)
-    @second = Article.where(category_id: @prioritized_categories[1]).order(created_at: :desc).first
-    @third = Article.where(category_id: @prioritized_categories[2]).order(created_at: :desc).first
-    @fourth = Article.where(category_id: @prioritized_categories[3]).order(created_at: :desc).first
+    @second = Article.last_by_category(@prioritized_categories, 1)
+    @third = Article.last_by_category(@prioritized_categories, 2)
+    @fourth = Article.last_by_category(@prioritized_categories, 3)
   end
 
   def show; end
