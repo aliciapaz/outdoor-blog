@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @votes = Vote.vote_count
     @featured = Article.most_popular(@votes)
+    @first = Article.find_by_priority(@votes, 0)
+    @second = Article.find_by_priority(@votes, 1)
+    @third = Article.find_by_priority(@votes, 2)
+    @fourth = Article.find_by_priority(@votes, 3)
   end
 
   def show; end

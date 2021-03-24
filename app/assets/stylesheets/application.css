@@ -158,3 +158,30 @@ nav {
   color: #fff;
 }
 
+.categories {
+  position: relative;
+  top: -3px;
+}
+
+.category-item {
+  width: 25%;
+}
+
+.category-title {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 900;
+  position: absolute;
+  top: 12px;
+  padding-left: 1rem;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #FEFE00;
+  text-decoration-thickness: 3px;
+}
+
+.category-article-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+

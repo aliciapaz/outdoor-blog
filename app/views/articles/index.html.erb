@@ -12,11 +12,28 @@
       <div class='main-article-caption'><%= @featured.text[0..100] %></div>
     </div>
   </article>
-  <div class="categories">
-    <article></article>
-    <article></article>
-    <article></article>
-    <article></article>
+  <div class="categories flex">
+    <article class='category-item'>
+      <%=link_to Category.find(@first.category_id).name, @first, class: 'category-title' %>
+      <%= image_tag @first.image, class: 'category-article-image' %>
+      <%= link_to @first.title, @first, class: 'category-article-title' %>
+    </article>
+        <article class='category-item'>
+      <%=link_to Category.find(@second.category_id).name, @second, class: 'category-title' %>
+      <%= image_tag @second.image, class: 'category-article-image' %>
+      <%= link_to @second.title, @second, class: 'category-article-title' %>
+    </article>
+        <article class='category-item'>
+      <%=link_to Category.find(@third.category_id).name, @third, class: 'category-title' %>
+      <%= image_tag @third.image, class: 'category-article-image' %>
+      <%= link_to @third.title, @third, class: 'category-article-title' %>
+    </article>
+        <article class='category-item'>
+      <%=link_to Category.find(@fourth.category_id).name, @fourth, class: 'category-title' %>
+      <%= image_tag @fourth.image, class: 'category-article-image' %>
+      <%= link_to @fourth.title, @fourth, class: 'category-article-title' %>
+    </article>
+    
   </div>
 </div>
 

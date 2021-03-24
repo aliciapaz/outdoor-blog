@@ -14,4 +14,8 @@ class Article < ApplicationRecord
   def self.most_popular(votes)
     self.find(votes.keys[0])
   end
+
+  def self.find_by_priority(votes, index)
+    self.find(votes.keys[index])
+  end
 end
