@@ -2,15 +2,17 @@ example_id                                          | status  | run_time        
 --------------------------------------------------- | ------- | --------------- |
 ./spec/helpers/articles_helper_spec.rb[1:1]         | pending | 0.00003 seconds |
 ./spec/helpers/categories_helper_spec.rb[1:1]       | pending | 0.00002 seconds |
+./spec/helpers/sessions_helper_spec.rb[1:1]         | unknown |                 |
 ./spec/helpers/users_helper_spec.rb[1:1]            | pending | 0.00001 seconds |
 ./spec/helpers/votes_helper_spec.rb[1:1]            | pending | 0.00002 seconds |
-./spec/models/article_spec.rb[1:1]                  | pending | 0.00001 seconds |
+./spec/models/article_spec.rb[1:1]                  | failed  | 0.00002 seconds |
 ./spec/models/category_spec.rb[1:1]                 | pending | 0.00001 seconds |
 ./spec/models/user_spec.rb[1:1]                     | passed  | 0.00346 seconds |
 ./spec/models/user_spec.rb[1:2]                     | passed  | 0.00357 seconds |
 ./spec/models/user_spec.rb[1:3]                     | passed  | 0.00336 seconds |
 ./spec/models/user_spec.rb[1:4]                     | passed  | 0.01172 seconds |
 ./spec/models/vote_spec.rb[1:1]                     | pending | 0.00002 seconds |
+./spec/models/vote_spec.rb[1:2]                     | unknown |                 |
 ./spec/requests/articles_spec.rb[1:1:1]             | pending | 0.00099 seconds |
 ./spec/requests/articles_spec.rb[1:2:1]             | pending | 0.00086 seconds |
 ./spec/requests/articles_spec.rb[1:3:1]             | passed  | 0.03589 seconds |
@@ -37,6 +39,7 @@ example_id                                          | status  | run_time        
 ./spec/requests/categories_spec.rb[1:6:2:1]         | pending | 0.0016 seconds  |
 ./spec/requests/categories_spec.rb[1:7:1]           | pending | 0.00129 seconds |
 ./spec/requests/categories_spec.rb[1:7:2]           | pending | 0.00146 seconds |
+./spec/requests/sessions_spec.rb[1:1:1]             | unknown |                 |
 ./spec/requests/users_spec.rb[1:1:1]                | pending | 0.00174 seconds |
 ./spec/requests/users_spec.rb[1:2:1]                | pending | 0.00166 seconds |
 ./spec/requests/users_spec.rb[1:3:1]                | passed  | 0.13998 seconds |
