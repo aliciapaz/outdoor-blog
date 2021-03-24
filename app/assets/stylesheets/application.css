@@ -103,3 +103,10 @@ nav {
   top: 4px;
 }
 
+.logout-btn {
+  border: none;
+  background: #fff;
+  position: relative;
+  bottom: 2px;
+}
+
