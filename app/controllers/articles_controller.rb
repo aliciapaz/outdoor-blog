@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @votes = Vote.vote_count
+    @featured = Article.most_popular(@votes)
   end
 
   def show; end

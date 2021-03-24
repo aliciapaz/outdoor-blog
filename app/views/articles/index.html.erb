@@ -1,34 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Image</th>
-      <th>Author</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= article.image %></td>
-        <td><%= article.author_id %></td>
-        <td><%= article.category_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="main-container">
+  <article class="main-article">
+    <div class="article-top-line flex">
+      <div class='red-line'></div>
+      <div class='gray-line'></div>
+    </div>
+      <%=  image_tag @featured.image, class: 'main-article-image' %>
+    <div class="main-article-info">
+      <%= link_to @featured.title, @featured, class: 'main-article-title'%>
+      <div class='main-article-caption'><%= @featured.text[0..100] %></div>
+    </div>
+  </article>
+  <div class="categories">
+    <article></article>
+    <article></article>
+    <article></article>
+    <article></article>
+  </div>
+</div>
 
 <br>
 

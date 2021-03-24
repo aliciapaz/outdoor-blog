@@ -10,4 +10,8 @@ class Article < ApplicationRecord
                                               too_long: '%{count} characters is the maximum allowed' }
   validates :author_id, presence: true
   validates :category_id, presence: true
+
+  def self.most_popular(votes)
+    self.find(votes.keys[0])
+  end
 end
