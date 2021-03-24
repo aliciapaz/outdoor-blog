@@ -3,12 +3,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @votes = Vote.vote_count
-    @featured = Article.most_popular(@votes)
-    @first = Article.find_by_priority(@votes, 0)
-    @second = Article.find_by_priority(@votes, 1)
-    @third = Article.find_by_priority(@votes, 2)
-    @fourth = Article.find_by_priority(@votes, 3)
+    @votes_by_article = Vote.count_by_article
+    @votes_by_category = Vote.count_by_category
+    @categories = Category.prioritize.order(:priority)
+    @featured = Article.most_popular(@votes_by_article)
+    # @featured = Article.find_by_priority(@votes, 0)
+    # @second = Article.find_by_priority(@votes, 1)
+    # @third = Article.find_by_priority(@votes, 2)
+    # @fourth = Article.find_by_priority(@votes, 3)
   end
 
   def show; end
@@ -20,14 +22,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      redirect_to @article, notice: 'Article was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

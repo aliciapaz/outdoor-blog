@@ -1,4 +1,5 @@
 require 'faker'
+
 User.destroy_all
 4.times do |index|
   User.create!(name: Faker::Name.unique.name)

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
-  before(:all) do
+  before(:each) do
     4.times do
       create(:user)
     end

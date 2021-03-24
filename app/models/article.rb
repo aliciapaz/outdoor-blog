@@ -11,11 +11,12 @@ class Article < ApplicationRecord
   validates :author_id, presence: true
   validates :category_id, presence: true
 
-  def self.most_popular(votes)
-    self.find(votes.keys[0])
-  end
+  scope :camping, -> { where('category_id = ?', '1') }
+  scope :trekking, -> { where('category_id = ?', '2') }
+  scope :bird_watching, -> { where('category_id = ?', '3') }
+  scope :biking, -> { where('category_id = ?', '4') }
 
-  def self.find_by_priority(votes, index)
-    self.find(votes.keys[index])
+  def self.most_popular(votes_by_article)
+    find(votes_by_article.keys[0])
   end
 end

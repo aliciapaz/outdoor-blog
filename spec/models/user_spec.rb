@@ -19,6 +19,6 @@ RSpec.describe User, type: :model do
 
   it 'normalizes a name' do
     @user = User.create(name: 'jAnE dOe')
-    expect(@user.name).to eq('Jane Doe')
+    expect(@user.name).to eq('jane doe')
   end
 end
