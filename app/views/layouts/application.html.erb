@@ -18,10 +18,13 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <% flash.each do |type, msg| %>
-      <div class= "alert alert-info">
-        <%= msg %>
-      </div>
+             <% flash.each do |type, msg| %>
+      <% if flash[:notice] %>
+          <p class="notice"><%= msg %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert"><%= msg %></p>
+      <% end %>
     <% end %>
     
     <%= yield %>

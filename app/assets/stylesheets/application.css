@@ -14,9 +14,9 @@
  *= require_self
  */
 
- /* reset */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+ /* reset */
 
  footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -47,8 +47,18 @@ table {
 
 /* wide */ 
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
 .flex {
   display: flex;
+}
+
+.alert {
+  background-color: #e84545;
+  padding: 1rem;
 }
 
 /* navigation bar */
@@ -61,6 +71,7 @@ nav {
  .navbar-link {
   margin: 1.5rem 1rem;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
   font-size: 0.8rem;
   color: #847F7B;
  }
@@ -87,8 +98,8 @@ nav {
  }
 
 .link-separator {
-  font-family: 'Montserrat', sans-serif;
   color: #847F7B;
   position: relative;
   top: 4px;
 }
+

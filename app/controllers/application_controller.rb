@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :bad_token
+  def bad_token
+    flash[:warning] = "Session expired"
+    redirect_to root_path
+  end
 end

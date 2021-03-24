@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = User.find(@user[:id])
-      redirect_to root_path, notice: 'Login sucessful'
+      redirect_to root_path
+      session[:user_id] = @user.id
     else
       render :new
     end

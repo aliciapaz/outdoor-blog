@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def navbar_button_logout
-    button_to 'LOGOUT', logout_path, { method: :delete, data: { confirm: 'Are you sure?' } }, class: 'navbar-link' if user_signed_in?
+    button_to 'LOGOUT', logout_path, { method: :delete, data: { confirm: 'Are you sure?' }, class: 'logout-btn' } if user_signed_in?
   end
 
   def navbar_button_name
