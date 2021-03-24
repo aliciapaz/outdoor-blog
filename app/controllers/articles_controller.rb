@@ -5,12 +5,11 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @votes_by_article = Vote.count_by_article
     @votes_by_category = Vote.count_by_category
-    @categories = Category.prioritize.order(:priority)
+    @prioritized_categories = Category.prioritize(@votes_by_category).ids
     @featured = Article.most_popular(@votes_by_article)
-    # @featured = Article.find_by_priority(@votes, 0)
-    # @second = Article.find_by_priority(@votes, 1)
-    # @third = Article.find_by_priority(@votes, 2)
-    # @fourth = Article.find_by_priority(@votes, 3)
+    @second = Article.where(category_id: @prioritized_categories[1]).order(created_at: :desc).first
+    @third = Article.where(category_id: @prioritized_categories[2]).order(created_at: :desc).first
+    @fourth = Article.where(category_id: @prioritized_categories[3]).order(created_at: :desc).first
   end
 
   def show; end

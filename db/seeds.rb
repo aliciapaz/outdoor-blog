@@ -29,7 +29,7 @@ Article.destroy_all
   Article.create!([{
     title: Faker::Lorem.sentence(word_count: 3),
     text: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-    image: 'https://images.freeimages.com/images/large-previews/940/ostrich-masai-mara-kenya-1365799.jpg',
+    image: 'https://images.freeimages.com/images/large-previews/eb7/mountain-1379228.jpg',
     author_id: rand(1..4),
     category_id: 1
     },
