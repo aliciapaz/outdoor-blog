@@ -1,7 +1,7 @@
 <nav class='flex'>
-      <div class="navbar-link"><a class='navbar-brand' href="#">Outd<i class="brand-bike fas fa-biking"></i>rLife</a></div>
+      <div class="navbar-link"><a class='navbar-brand' href="/">Outd<i class="brand-bike fas fa-biking"></i>rLife</a></div>
       <div class='navbar-link navbar-category-links'>
-        <a class='navbar-link navbar-home' href="#">HOME</a>
+        <%= link_to 'HOME', root_path, class: 'navbar-link navbar-home' %>
         <%= link_to 'WRITE AN ARTICLE', new_article_path, class: 'navbar-link navbar-home' %>
         <%= link_to 'CAMPING', category_path(1), class: 'navbar-link'%>
         <%= link_to 'TREKKING', category_path(2), class: 'navbar-link'%>
