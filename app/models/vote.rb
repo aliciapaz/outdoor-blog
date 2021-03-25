@@ -2,6 +2,13 @@ class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :article
 
+  validate :vote_is_unique, on: :create
+
+  def vote_is_unique
+    v = Vote.where(article_id: self[:article_id], user_id: self[:user_id])
+    errors.add(:vote_is_unique, 'a user can vote an article only once!') unless v.empty?
+  end
+
   def self.count_by_article
     self.group(:article_id).order('count_all desc').count
   end

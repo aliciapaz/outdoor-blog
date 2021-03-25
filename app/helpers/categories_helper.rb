@@ -6,7 +6,19 @@ module CategoriesHelper
       concat content_tag(:h2, article.title, class: 'article-snippet-title')
       concat content_tag(:p, article.text.truncate_words(15, omission: '...'), class: 'article-snippet-text')
       concat content_tag(:p, "By  #{User.find(article.author_id).name.titleize}", class: 'article-snippet-author')
-      concat button_to 'Vote!', article_votes_path(article[:id]), params: { vote: {user_id: current_user.id, article_id: article.id } } if user_signed_in?
+      vote_button(current_user, article)
     end
+  end
+
+  private 
+
+  def vote_button(user, article)
+    if user_signed_in?
+    concat button_to 'Vote!', article_votes_path(article[:id]), params: { vote: { user_id: current_user.id, article_id: article.id }, disabled: voted?(user, article) }
+    end
+  end
+
+  def voted?(user, article)
+    Vote.where(user_id: user.id, article_id: article.id).empty? ? false : true
   end
 end
