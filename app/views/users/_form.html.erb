@@ -1,20 +1,11 @@
-<%= form_with(model: user, url: 'signup') do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<form action="/signup" method="post" accept-charset="UTF-8">
+  <label for="user[name]">Username: </label>
+  <input name="user[name]" type="text" />
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+  />
+  <input type="submit" value="Submit" />
+</form> 
 
-  <div>
-    <%= form.label(:name, "Username: ") %><br>
-    <%= form.text_field :name, placeholder: "sandycheeks123" %><br>
-  </div>
-
-  <div class="actions">
-    <%= form.submit('Register') %>
-  </div>
-<% end %>
