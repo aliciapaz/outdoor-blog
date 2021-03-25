@@ -240,11 +240,19 @@ footer {
   font-weight: 900;
 }
 
-/* category show page */ 
+/* category show page */
 
 .articles-container {
   grid-template-columns: 50% 50%;
   grid-template-rows: 450px 450px;
+}
+
+.stripes-cover {
+  background: repeating-linear-gradient(  135deg,
+                                          rgba(255,255,255,0.15),
+                                          rgba(255,255,255,0.15) 4px,
+                                          rgba(0,0,0,0.15) 2px,
+                                          rgba(0,0,0,0.15) 6px)
 }
 
 .article-image {
@@ -259,7 +267,11 @@ footer {
 }
 
 .article-snippet-category {
-  color: #F99B00
+  width: fit-content;
+  padding-bottom: 8px;
+  color: #F99B00;
+  font-size: 1.4rem;
+  border-bottom: 3px solid #F99B00;
 }
 
 .article-snippet-title {
