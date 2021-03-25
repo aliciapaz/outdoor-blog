@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
     @second = @articles[1]
     @third = @articles[2]
     @fourth = @articles[3]
+    byebug
   end
 
   def new

@@ -8,22 +8,22 @@
     </div>
       <%=  image_tag @featured.image, class: 'main-article-image' %>
     <div class="main-article-info">
-      <%= link_to @featured.title, @featured, class: 'main-article-title'%>
+      <h1><%= link_to @featured.title, @featured, class: 'main-article-title'%></h1>
       <div class='main-article-caption'><%= @featured.text[0..100] %></div>
     </div>
   </article>
   <div class="categories flex">
     <article class='category-item'>
-      <%= category_article_item(@first) %>
+      <%= article_item(@first) %>
     </article>
     <article class='category-item'>
-      <%= category_article_item(@second) %>
+      <%= article_item(@second) %>
     </article>
         <article class='category-item'>
-      <%= category_article_item(@third) %>
+      <%= article_item(@third) %>
     </article>
     <article class='category-item'>
-      <%=category_article_item(@fourth) %>
+      <%=article_item(@fourth) %>
     </article>
     
   </div>
