@@ -16,6 +16,7 @@
 
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap');
+
  /* reset */
 
  footer, header, hgroup, menu, nav, section {
@@ -54,6 +55,14 @@ body {
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.reverse {
+  flex-direction: row-reverse;
 }
 
 .alert {
@@ -241,4 +250,15 @@ footer {
   color: #fff;
   font-family: 'Chivo', sans-serif;
   font-weight: 900;
+}
+
+/* category show page */ 
+
+.articles-container {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+.article-snippet-image {
+  width: 50%;
 }

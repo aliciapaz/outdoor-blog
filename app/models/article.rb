@@ -11,10 +11,8 @@ class Article < ApplicationRecord
   validates :author_id, presence: true
   validates :category_id, presence: true
 
-  scope :camping, -> { where('category_id = ?', '1') }
-  scope :trekking, -> { where('category_id = ?', '2') }
-  scope :bird_watching, -> { where('category_id = ?', '3') }
-  scope :biking, -> { where('category_id = ?', '4') }
+  scope :order_by_most_recent, -> { order(created_at: :desc) }
+  scope :category, ->(category_id) { where(category_id: category_id) }
 
   def self.most_popular(votes_by_article)
     find(votes_by_article.keys[0])

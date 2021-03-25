@@ -1,4 +1,4 @@
-class Category < ApplicationRecord
+  class Category < ApplicationRecord
   has_many :articles
 
   def self.prioritize(votes_by_category)

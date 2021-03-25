@@ -5,7 +5,14 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def show; end
+  def show
+    @category = Category.find(params[:id])
+    @articles = Article.category(params[:id]).order_by_most_recent
+    @first = @articles[0]
+    @second = @articles[1]
+    @third = @articles[2]
+    @fourth = @articles[3]
+  end
 
   def new
     @category = Category.new
@@ -14,12 +21,10 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
 
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @category.save
+      redirect_to @category, notice: 'Category was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
