@@ -5,11 +5,12 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @votes_by_article = Vote.count_by_article
     @votes_by_category = Vote.count_by_category
-    @prioritized_categories = Category.prioritize(@votes_by_category).ids
+    @categories = Category.prioritize(@votes_by_category).ids
     @featured = Article.most_popular(@votes_by_article)
-    @second = Article.last_by_category(@prioritized_categories, 1)
-    @third = Article.last_by_category(@prioritized_categories, 2)
-    @fourth = Article.last_by_category(@prioritized_categories, 3)
+    @first = Article.last_by_category(@categories, 0)
+    @second = Article.last_by_category(@categories, 1)
+    @third = Article.last_by_category(@categories, 2)
+    @fourth = Article.last_by_category(@categories, 3)
   end
 
   def show; end
