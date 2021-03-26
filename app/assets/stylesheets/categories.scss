@@ -23,7 +23,8 @@
 
 .article-snippet {
   padding: 1rem;
-
+  width: 100%;
+  position: relative;
 }
 
 .article-snippet-category {
@@ -47,9 +48,10 @@
   color: #fff;
   transition-timing-function: ease;
   cursor: pointer;
-  position: relative;
-  bottom: -5rem;
-  right: -18rem;
+  align-self: flex-end;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 input:disabled {
@@ -61,16 +63,16 @@ input:enabled:hover {
 }
 
 .vote-count {
-  position: relative;
   width: 23px;
   padding: 0.5rem;
-  bottom: -2rem;
-  right: -15rem;
   color: #F9A167;
   font: 600 1rem 'Chivo', sans-serif;
   text-align: center;
   border: 2px solid #FD6000;
   border-radius: 50%;
-  background-color: #fff
+  background-color: #fff;
+  position: absolute;
+  bottom: -0.3rem;
+  right: 5rem;
 }
 
