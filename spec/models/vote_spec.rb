@@ -1,37 +1,67 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
-  before(:each) do
-    4.times do
-      create(:user)
-    end
+  it 'is valid with a user' do
+    @author = create(:user)
+    @voter = create(:user)
+    @category = create(:category)
+    @article = create(:article, author_id: @author.id, category_id: @category.id)
+    @vote = Vote.new(user_id: @voter.id, article_id: @article.id)
+    expect(@vote).to be_valid
+  end
 
-    4.times do
-      create(:category)
-    end
+  it 'is not valid without a user' do
+    @author = create(:user)
+    @category = create(:category)
+    @article = create(:article, author_id: @author.id, category_id: @category.id)
+    @vote = Vote.new(user_id: nil, article_id: @article.id)
+    expect(@vote).to_not be_valid
+  end
 
-    2.times do
-      create(:article)
-    end
+  it 'is valid with ana article' do
+    @author = create(:user)
+    @voter = create(:user)
+    @category = create(:category)
+    @article = create(:article, author_id: @author.id, category_id: @category.id)
+    @vote = Vote.new(user_id: @voter.id, article_id: @article.id)
+    expect(@vote).to be_valid
+  end
 
-    10.times do
-      create(:vote, article_id: '1')
-    end
-
-    5.times do
-      create(:vote, article_id: '2')
-    end
+  it 'is not valid without an article' do
+    @author = create(:user)
+    @voter = create(:user)
+    @category = create(:category)
+    @vote = Vote.new(user_id: @voter.id, article_id: nil)
+    expect(@vote).to_not be_valid
   end
 
   it 'retrieves the count of votes grouped by article sorted in descending order' do
+    @user1 = create(:user)
+    @user2 = create(:user)
+    @category1 = create(:category)
+    @category2 = create(:category)
+    @article1 = create(:article, author_id: @user1.id, category_id: @category1.id)
+    @article2 = create(:article, author_id: @user2.id, category_id: @category2.id)
+    create(:vote, user_id: @user1.id, article_id: @article1.id)
+    create(:vote, user_id: @user1.id, article_id: @article2.id)
+    create(:vote, user_id: @user2.id, article_id: @article2.id) # article2 gets 2 votes, article1 gets 1 vote
     expect(Vote.count_by_article.class).to eq(Hash)
-    expect(Vote.count_by_article.keys[0]).to eq(1)
+    expect(Vote.count_by_article.keys[0]).to eq(@article2.id) 
     expect(Vote.count_by_article.values[0]).to be > Vote.count_by_article.values[1]
   end
 
   it 'retrieves the count of votes grouped by category' do
+    @user1 = create(:user)
+    @user2 = create(:user)
+    @category1 = create(:category)
+    @category2 = create(:category)
+    @article1 = create(:article, author_id: @user1.id, category_id: @category1.id)
+    @article2 = create(:article, author_id: @user2.id, category_id: @category2.id)
+    create(:vote, user_id: @user1.id, article_id: @article1.id)
+    create(:vote, user_id: @user1.id, article_id: @article2.id)
+    create(:vote, user_id: @user2.id, article_id: @article2.id) # category2 gets 2 votes, category1 gets 1 vote
     expect(Vote.count_by_category.class).to eq(Hash)
-    expect(Vote.count_by_category.keys[0].class).to eq(Integer)
+    expect(Vote.count_by_category.keys[0]).to eq(@category2.id)
     expect(Vote.count_by_category.values[0]).to be > Vote.count_by_category.values[1]
   end
 end
