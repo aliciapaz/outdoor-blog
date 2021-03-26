@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'categories/show', type: :view do
+RSpec.describe 'categories/show', type: :system do
   before(:each) do
     @category = assign(:category, Category.create!(
                                     name: 'Name',

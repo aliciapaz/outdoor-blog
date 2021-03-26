@@ -18,7 +18,7 @@ RSpec.describe Vote, type: :model do
     expect(@vote).to_not be_valid
   end
 
-  it 'is valid with ana article' do
+  it 'is valid with an article' do
     @author = create(:user)
     @voter = create(:user)
     @category = create(:category)
@@ -32,6 +32,25 @@ RSpec.describe Vote, type: :model do
     @voter = create(:user)
     @category = create(:category)
     @vote = Vote.new(user_id: @voter.id, article_id: nil)
+    expect(@vote).to_not be_valid
+  end
+
+  it 'is valid if unique for that user and article' do
+    @author = create(:user)
+    @voter = create(:user)
+    @category = create(:category)
+    @article = create(:article, author_id: @author.id, category_id: @category.id)
+    @vote = Vote.new(user_id: @voter.id, article_id: @article.id)
+    expect(@vote).to be_valid
+  end
+
+  it 'is not valid if the user already voted that article' do
+    @author = create(:user)
+    @voter = create(:user)
+    @category = create(:category)
+    @article = create(:article, author_id: @author.id, category_id: @category.id)
+    create(:vote, user_id: @voter.id, article_id: @article.id) # the user is voting the article
+    @vote = Vote.new(user_id: @voter.id, article_id: @article.id) # the user wants to vote again!!
     expect(@vote).to_not be_valid
   end
 
