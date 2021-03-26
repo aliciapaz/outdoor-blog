@@ -1,8 +1,15 @@
-<h1>Login</h1>
+<div class='login-container'>
+  
+  <img class="login-img"
+       src="https://images.freeimages.com/images/large-previews/8eb/ducks-mallards-nature-outdoors-water-feeding-feathers-tails-1363468.jpg"
+       alt="ducks in the water">
+    
+  <%= form_tag '/login', class: 'login-form flex' do %>
+  
+  <%= label_tag 'Name: ' %>
+  <%= text_field_tag :name %>
+  <%= submit_tag "Login", class:'publish-btn' %>
+  
+  <% end %>
 
-<%= form_tag '/login' do %>
-
-  Name: <%= text_field_tag :name %>
-  <%= submit_tag "Submit" %>
-
-<% end %>
+</div>
