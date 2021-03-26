@@ -1,21 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  before(:all) do
-    4.times do
+  before(:each) do
+    16.times do
       create(:user)
     end
-
+  
     4.times do
       create(:category)
     end
 
-    16.times do
-      create(:article)
+    4.times do
+      create(:article, author_id: 1, category_id: rand(1..4))
     end
-
-    100.times do
-      create(:vote)
+  
+    16.times do |index|
+      Vote.create(user_id: index + 1, article_id: rand(1..4))
     end
   end
 
@@ -24,7 +24,5 @@ RSpec.describe Category, type: :model do
     @category = Category.prioritize(@votes)
     @prioritized = @category.order(:priority)
     expect(@prioritized.first.priority).to eq(1)
-    expect(@prioritized.second.priority).to eq(2)
-    expect(@prioritized.third.priority).to eq(3)
   end
 end

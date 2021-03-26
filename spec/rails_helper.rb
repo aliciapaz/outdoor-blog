@@ -7,6 +7,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 require 'support/factory_bot'
+require 'database_cleaner/active_record'
 
 # Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -25,7 +26,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with :truncation, except: %w(ar_internal_metadata)
   end
 
   config.before(:each) do
@@ -40,6 +41,7 @@ RSpec.configure do |config|
   # This makes it so Capybara can see the database.
   config.before(:each) do
     DatabaseCleaner.start
+    FactoryBot.reload
   end
 
   config.after(:each) do
