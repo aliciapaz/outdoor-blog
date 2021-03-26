@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def navbar_button_name
-    link_to current_user.name, user_path(current_user), class: 'navbar-link' if user_signed_in?
+    content_tag(:p, current_user.name, class: 'navbar-link') if user_signed_in?
   end
 
   private
