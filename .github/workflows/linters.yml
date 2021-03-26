@@ -8,12 +8,12 @@ env:
 jobs:
   rubocop:
     name: Rubocop
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: 3.0.0
       - name: Setup Rubocop
         run: |
           gem install --no-document rubocop:'1.8.1' # https://docs.rubocop.org/en/stable/installation/
