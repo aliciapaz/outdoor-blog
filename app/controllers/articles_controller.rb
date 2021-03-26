@@ -17,13 +17,14 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @category_options = Category.all.map { |c| [c.name.titleize, c.id] }
   end
 
   def create
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to @article
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,12 +32,10 @@ class ArticlesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def article_params
     params.require(:article).permit(:title, :text, :image, :author_id, :category_id)
   end

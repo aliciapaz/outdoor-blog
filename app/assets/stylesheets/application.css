@@ -67,7 +67,7 @@ h1, h2, h3 {
 nav {
   justify-content: space-between;
   box-sizing: border-box;
-  height: 3rem;
+  height: 4rem;
 }
 
  .navbar-link {
@@ -109,7 +109,7 @@ nav {
   border: none;
   background: #fff;
   position: relative;
-  bottom: 2px;
+  bottom: 11px;
 }
 
 /* footer */ 
