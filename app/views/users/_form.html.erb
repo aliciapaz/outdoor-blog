@@ -1,11 +1,10 @@
-<form action="/signup" method="post" accept-charset="UTF-8">
-  <label for="user[name]">Username: </label>
+<form action="/signup" method="post" accept-charset="UTF-8" class='login-form flex'>
+  <label for="user[name]">Name: </label>
   <input name="user[name]" type="text" />
   <input
     type="hidden"
     name="authenticity_token"
     value="<%= form_authenticity_token %>"
   />
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Sign up" class='publish-btn' />
 </form>
-
