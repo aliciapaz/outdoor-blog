@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :require_login, only: %i[new create]
 
   def index
     @articles = Article.all
@@ -38,5 +39,12 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :text, :image, :author_id, :category_id)
+  end
+
+  def require_login
+    return unless current_user.nil?
+
+    flash[:alert] = 'You must be logged in to access this section'
+    redirect_to login_path
   end
 end
