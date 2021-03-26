@@ -108,7 +108,7 @@ label {
 
 textarea {
   height: 20rem;
-  padding: 1rem;
+  padding: 1rem 0;
   font: 400  1.2rem 'Montserrat', sans-serif;
   border: none;
 }
@@ -147,7 +147,7 @@ select {
   font: 900 2.5rem 'Chivo', sans-serif;
   color: #4D443E; 
   border: none;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .publish-btn {
@@ -158,4 +158,29 @@ select {
   border-radius: 5px;
   height: 2rem;
   margin: 0 auto;
+}
+
+/* show article */ 
+
+.show-container {
+  margin-top: -1rem;
+}
+
+.article-show-container {
+  width: 40%;
+  margin: 0 auto;
+  padding: 2rem 0
+}
+
+.article-show-title {
+  color: #4D443E; 
+}
+
+.article-show-image {
+  max-width: 100%;
+}
+
+.category-link {
+  font-weight: 600;
+  color:#FD6000;
 }
