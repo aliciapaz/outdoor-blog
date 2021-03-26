@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
+  it 'should belong to an author' do
+    should belong_to(:author).class_name('User')
+  end
+
+  it 'should belong to a category' do
+    should belong_to(:category)
+  end
+
+  it 'should have many votes' do
+    should have_many(:votes)
+  end
+
+  it 'should have many voters' do
+    should have_many(:voters).through(:votes).class_name('User')
+  end
+
   it 'is valid with a title' do
     @author = create(:user)
     @category = create(:category)

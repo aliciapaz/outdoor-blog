@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
+  it 'belongs to a user' do
+    should belong_to(:user)
+  end
+
+  it 'belongs to a article' do
+    should belong_to(:article)
+  end
+
+
   it 'is valid with a user' do
     @author = create(:user)
     @voter = create(:user)

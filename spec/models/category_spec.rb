@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
+  it 'should have many articles' do
+    should have_many(:articles)
+  end
+  
   it 'sets priority according to the number of votes' do
     @user1 = create(:user)
     @user2 = create(:user)
