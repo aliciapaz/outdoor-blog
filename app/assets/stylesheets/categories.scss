@@ -6,6 +6,7 @@
 .articles-container {
   grid-template-columns: 50% 50%;
   grid-template-rows: 450px 450px;
+  margin-top: -1rem;
 }
 
 .stripes-cover {
@@ -45,6 +46,7 @@
 .vote-btn {
   background-color: #FD6000;
   padding: 0.2rem 0.5rem;
+  height: 1.5rem;
   font: 600 1rem 'Chivo', sans-serif;
   border: none;
   border-radius: 5px;
