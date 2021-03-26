@@ -5,9 +5,9 @@ class Article < ApplicationRecord
   has_many :voters, through: :votes, source: :user
 
   validates :title, presence: true, length: { minimum: 2, maximum: 100,
-                                              too_long: '%{count} characters is the maximum allowed' }
+                                              too_long: '100 characters is the maximum allowed' }
   validates :title, presence: true, length: { minimum: 2, maximum: 3000,
-                                              too_long: '%{count} characters is the maximum allowed' }
+                                              too_long: '3000 characters is the maximum allowed' }
   validates :author_id, presence: true
   validates :category_id, presence: true
 
@@ -19,6 +19,6 @@ class Article < ApplicationRecord
   end
 
   def self.last_by_category(categories, index)
-    where(category_id: categories[index]).order(created_at: :desc).first  
+    where(category_id: categories[index]).order(created_at: :desc).first
   end
 end

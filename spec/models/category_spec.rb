@@ -27,5 +27,4 @@ RSpec.describe Category, type: :model do
     expect(@prioritized.second.priority).to eq(2)
     expect(@prioritized.third.priority).to eq(3)
   end
-
 end

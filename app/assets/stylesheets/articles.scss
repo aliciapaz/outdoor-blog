@@ -7,21 +7,6 @@
   margin-top: -1rem;
 }
 
-.article-top-line {
-  width: 100%;
-  height: 7px;
-}
-
-.red-line {
-  width: 20%;
-  background-color: #E8072F;
-}
-
-.gray-line {
-  width: 80%;
-  background-color: #847F7B;
-}
-
 .main-article {
   position: relative;
 }
@@ -31,7 +16,7 @@
   height: 600px;
   object-fit: cover;
   object-position: 20%;
-  opacity: 0.8
+  opacity: 0.8;
 }
 
 .main-article-info {
@@ -41,7 +26,7 @@
 }
 
 .main-article-title {
-  color:#FA6000;
+  color: #fa6000;
   font-size: 1.5rem;
 }
 
@@ -70,7 +55,7 @@
   padding-left: 1rem;
   color: #fff;
   text-decoration: underline;
-  text-decoration-color: #FEFE00;
+  text-decoration-color: #fefe00;
   text-decoration-thickness: 3px;
 }
 
@@ -97,6 +82,13 @@ input {
   padding: 0.2rem 1rem;
 }
 
+textarea {
+  height: 20rem;
+  padding: 1rem 0;
+  font: 400  1.2rem 'Montserrat', sans-serif;
+  border: none;
+}
+
 input:focus,
 textarea:focus {
   outline: none;
@@ -104,13 +96,6 @@ textarea:focus {
 
 label {
   margin-bottom: 0.2rem;
-}
-
-textarea {
-  height: 20rem;
-  padding: 1rem 0;
-  font: 400  1.2rem 'Montserrat', sans-serif;
-  border: none;
 }
 
 select {
@@ -124,12 +109,12 @@ select {
 
 .red-line {
   width: 20%;
-  background-color: #E8072F;
+  background-color: #e8072f;
 }
 
 .gray-line {
   width: 80%;
-  background-color: #847F7B;
+  background-color: #847f7b;
 }
 
 .new-article-form {
@@ -145,13 +130,13 @@ select {
 
 .new-article-title {
   font: 900 2.5rem 'Chivo', sans-serif;
-  color: #4D443E; 
+  color: #4d443e;
   border: none;
   padding: 1rem 0;
 }
 
 .publish-btn {
-  background-color: #FD6000;
+  background-color: #fd6000;
   font: 600 1rem 'Chivo', sans-serif;
   color: #fff;
   border: none;
@@ -160,7 +145,7 @@ select {
   margin: 0 auto;
 }
 
-/* show article */ 
+/* show article */
 
 .show-container {
   margin-top: -1rem;
@@ -169,11 +154,11 @@ select {
 .article-show-container {
   width: 40%;
   margin: 0 auto;
-  padding: 2rem 0
+  padding: 2rem 0;
 }
 
 .article-show-title {
-  color: #4D443E; 
+  color: #4d443e;
 }
 
 .article-show-image {
@@ -182,5 +167,5 @@ select {
 
 .category-link {
   font-weight: 600;
-  color:#FD6000;
+  color: #fd6000;
 }

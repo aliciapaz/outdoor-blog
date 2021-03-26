@@ -1,4 +1,4 @@
-  class Category < ApplicationRecord
+class Category < ApplicationRecord
   has_many :articles
 
   def self.prioritize(votes_by_category)
@@ -6,6 +6,6 @@
     categories.each_with_index do |category, i|
       find(category).update(priority: i + 1)
     end
-    return self.all
+    all
   end
 end

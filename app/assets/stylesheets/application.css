@@ -14,34 +14,42 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap');
 
- /* reset */
+/* reset */
 
- footer, header, hgroup, menu, nav, section {
-	display: block;
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
   margin: 0;
   box-sizing: border-box;
-}
-ol, ul {
-	list-style: none;
-}
-a {
-  text-decoration: none;
-}
-
-/* wide */ 
-
-body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
 
-h1, h2, h3 {
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* wide */
+
+h1,
+h2,
+h3 {
   font-family: 'Chivo', sans-serif;
   font-weight: 900;
 }
@@ -51,6 +59,7 @@ h1, h2, h3 {
 }
 
 .grid {
+  display: -ms-grid;
   display: grid;
 }
 
@@ -62,6 +71,7 @@ h1, h2, h3 {
   background-color: #e84545;
   padding: 1rem;
 }
+
 /* navigation bar */
 
 nav {
@@ -70,37 +80,37 @@ nav {
   height: 4rem;
 }
 
- .navbar-link {
+.navbar-link {
   margin: 1.5rem 1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
-  color: #847F7B;
- }
+  color: #847f7b;
+}
 
- .navbar-brand {
+.navbar-brand {
   font-size: 1.5rem;
   position: relative;
   bottom: 6px;
-  color: #4C433D;
- }
+  color: #4c433d;
+}
 
- .brand-bike {
-    position: relative;
-    bottom: 4px;
-  color:#F76108;
- }
+.brand-bike {
+  position: relative;
+  bottom: 4px;
+  color: #f76108;
+}
 
- .navbar-home {
-   color:#FA6000;
- }
+.navbar-home {
+  color: #fa6000;
+}
 
- .navbar-session-links {
+.navbar-session-links {
   justify-content: space-between;
- }
+}
 
 .link-separator {
-  color: #847F7B;
+  color: #847f7b;
   position: relative;
   top: 4px;
 }
@@ -112,14 +122,14 @@ nav {
   bottom: 11px;
 }
 
-/* footer */ 
+/* footer */
 
 footer {
   margin-top: -3px;
   height: 67px;
   justify-content: space-between;
   align-items: center;
-  background-color: #4E443E;
+  background-color: #4e443e;
   z-index: 10;
 }
 
@@ -131,7 +141,7 @@ footer {
 
 .footer-bike {
   position: relative;
-  bottom:3px;
+  bottom: 3px;
 }
 
 .footer-link {
@@ -140,7 +150,7 @@ footer {
 }
 
 .link-orange {
-  color: #FA6000;
+  color: #fa6000;
 }
 
 .link-white {
@@ -153,5 +163,5 @@ footer {
 
 .social-icon {
   padding-right: 2px;
-  font-size:1.3rem;
+  font-size: 1.3rem;
 }

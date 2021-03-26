@@ -9,15 +9,16 @@ module CategoriesHelper
       vote_button(current_user, article)
       vote_count(article)
     end
-
   end
 
-  private 
+  private
 
   def vote_button(user, article)
-    if user_signed_in?
-      concat button_to 'Vote!', article_votes_path(article[:id]), params: { vote: { user_id: current_user.id, article_id: article.id } }, disabled: voted?(user, article), class: 'vote-btn'
-    end
+    return unless user_signed_in?
+
+    concat button_to 'Vote!', article_votes_path(article[:id]),
+                     params: { vote: { user_id: current_user.id, article_id: article.id } },
+                     disabled: voted?(user, article), class: 'vote-btn'
   end
 
   def voted?(user, article)

@@ -10,7 +10,7 @@ class Vote < ApplicationRecord
   end
 
   def self.count_by_article
-    self.group(:article_id).order('count_all desc').count
+    group(:article_id).order('count_all desc').count
   end
 
   def self.count_by_category
