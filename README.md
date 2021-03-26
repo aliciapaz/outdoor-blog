@@ -3,7 +3,7 @@
 > A desktop app where users can create articles about outdoor life (biking, trekking, camping, bird watching), browse categories and vote for posts.
 >  Join the adventure! :sunrise_over_mountains: :beetle: 
 
-[Screenshot](Screenshot.png)
+![ ](Screenshot.png)
 
 ## Built With
 
