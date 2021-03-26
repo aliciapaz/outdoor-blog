@@ -1,29 +1,23 @@
 <p id="notice"><%= notice %></p>
+  <div class='show-container'>
+    <div class='article-top-line flex'>
+      <div class='red-line'></div>
+      <div class='gray-line'></div>
+    </div>
+    <div class= 'article-show-container'>
+      <h1 class='article-show-title'><%= @article.title %></h1>
+      <p>
+      By <%= User.find(@article.author_id).name.titleize %>
+      </p>
+      <%= image_tag @article.image, alt: 'This is my image', class: 'article-show-image' %>
+      <p>
+        <%= @article.text %>
+      </p>
+      <p>
+      Category:
+        <%= link_to Category.find(@article.category_id).name.titleize, category_path(Category.find(@article.category_id)), class: 'category-link' %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @article.image %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @article.author_id %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @article.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back to Category', category_path(@article.category_id) %>

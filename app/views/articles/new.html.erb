@@ -1,5 +1,9 @@
-<h1>New Article</h1>
-
-<%= render 'form', article: @article %>
-
-<%= link_to 'Back', articles_path %>
+<div class="new-article-container">
+  <div class="article-top-line flex">
+    <div class='red-line'></div>
+    <div class='gray-line'></div>
+  </div>
+  
+  <%= render 'form', article: @article %>
+  
+</div>
