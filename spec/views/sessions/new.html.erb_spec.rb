@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'sessions/new', type: :view do
   before(:each) do
     assign(:user, User.new(
-                      name: 'MyString',
-                     ))
+                    name: 'MyString'
+                  ))
   end
 
   it 'renders login form' do

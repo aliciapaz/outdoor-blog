@@ -9,7 +9,6 @@ RSpec.describe Vote, type: :model do
     should belong_to(:article)
   end
 
-
   it 'is valid with a user' do
     @author = create(:user)
     @voter = create(:user)
@@ -74,7 +73,7 @@ RSpec.describe Vote, type: :model do
     create(:vote, user_id: @user1.id, article_id: @article2.id)
     create(:vote, user_id: @user2.id, article_id: @article2.id) # article2 gets 2 votes, article1 gets 1 vote
     expect(Vote.count_by_article.class).to eq(Hash)
-    expect(Vote.count_by_article.keys[0]).to eq(@article2.id) 
+    expect(Vote.count_by_article.keys[0]).to eq(@article2.id)
     expect(Vote.count_by_article.values[0]).to be > Vote.count_by_article.values[1]
   end
 
