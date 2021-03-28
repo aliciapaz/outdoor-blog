@@ -7,7 +7,7 @@
     <div class= 'article-show-container'>
       <h1 class='article-show-title'><%= @article.title %></h1>
       <p>
-      By <%= User.find(@article.author_id).name.titleize %>
+      By <%= author_name(@article) %>
       </p>
       <%= image_tag @article.image, alt: 'Article image', class: 'article-show-image' %>
       <p>
@@ -15,7 +15,7 @@
       </p>
       <p>
       Category:
-        <%= link_to Category.find(@article.category_id).name.titleize, category_path(Category.find(@article.category_id)), class: 'category-link' %>
+        <%= category_link(@article) %>
       </p>
     </div>
   </div>
