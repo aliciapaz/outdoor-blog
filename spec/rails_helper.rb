@@ -6,6 +6,7 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
+require 'support/selenium_helper'
 require 'support/factory_bot'
 require 'database_cleaner/active_record'
 
@@ -30,7 +31,11 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
+    if Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :transaction
+    else 
+      DatabaseCleaner.strategy = :truncation
+    end
   end
 
   config.before(:each, js: true) do
