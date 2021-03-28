@@ -1,16 +1,5 @@
+<%= display_errors(@article) %>
 <%= form_with(model: article, class: 'new-article-form') do |form| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= form.text_field :title, placeholder: 'Write your title here...', 
                                 class: 'new-article-title',
@@ -30,7 +19,10 @@
 
   <div class="field">
     <%= form.label :image, 'Image URL' %>
-    <%= form.text_field :image, class: 'image-input', required: true %>
+    <%= form.url_field :image, placeholder: 'Paste the URL of an image here...',
+                               class: 'image-input',
+                               required: true
+    %>
   </div>
 
     <%= form.hidden_field :author_id, value: current_user.id %>

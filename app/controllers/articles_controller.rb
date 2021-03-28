@@ -22,12 +22,13 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @category_options = Category.all.map { |c| [c.name.titleize, c.id] }
     @article = Article.new(article_params)
 
     if @article.save
       redirect_to @article
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
