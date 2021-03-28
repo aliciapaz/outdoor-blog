@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def display_msg
+    concat content_tag(:p, alert, class: 'alert') if alert.present?
+    content_tag(:p, notice, class: 'notice') if notice.present?
+  end
+
   def navbar_button_login
     link_to 'LOGIN', '/login', class: 'navbar-link' unless user_signed_in?
   end
