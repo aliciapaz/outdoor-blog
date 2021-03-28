@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       redirect_to root_path
       session[:user_id] = @user.id
     else
-      render :new
+      redirect_to signup_path
+      flash.alert = 'Please enter a valid name'
     end
   end
 
