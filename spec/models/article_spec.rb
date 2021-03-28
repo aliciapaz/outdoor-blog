@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
+  before(:each) do
+    @author = create(:user)
+    @category = create(:category, priority: 1)
+    @article = Article.new(title: 'My bike trip to Patagonia',
+                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
+                           image: 'https://images.freeimages.com/images/large-previews/8c5/grey-squirrel-1401263.jpg',
+                           author_id: @author.id,
+                           category_id: @category.id)
+  end
+
   it 'should belong to an author' do
     should belong_to(:author).class_name('User')
   end
@@ -18,95 +28,58 @@ RSpec.describe Article, type: :model do
   end
 
   it 'is valid with a title' do
-    @author = create(:user)
-    @category = create(:category)
-    @article = Article.new(title: 'My bike trip to Patagonia',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: @category.id)
+    @article.title = 'This is a vaid title'
     expect(@article).to be_valid
   end
 
   it 'is not valid without a title' do
-    @author = create(:user)
-    @category = create(:category)
-    @article = Article.new(title: '',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: @category.id)
+    @article.title = ''
     expect(@article).to_not be_valid
   end
 
   it 'is valid with text' do
-    @author = create(:user)
-    @category = create(:category)
-    @article = Article.new(title: 'My bike trip to Patagonia',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: @category.id)
+    @article.text = 'This is valid text'
     expect(@article).to be_valid
   end
 
   it 'is not valid without text' do
-    @author = create(:user)
-    @category = create(:category)
-    @article = Article.new(title: 'My bike trip to Patagonia',
-                           text: '',
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: @category.id)
+    @article.text = ''
     expect(@article).to_not be_valid
   end
 
   it 'is valid with an author' do
-    @author = create(:user)
-    @category = create(:category)
-    @article = Article.new(title: 'My bike trip to Patagonia',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: @category.id)
+    @article.author_id = @author.id
     expect(@article).to be_valid
   end
 
   it 'is not valid without an author' do
-    @category = create(:category)
-    @article = Article.new(title: '',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: nil,
-                           category_id: @category.id)
+    @article.author_id = nil
     expect(@article).to_not be_valid
   end
 
   it 'is valid with a category' do
-    @author = create(:user)
-    @category = create(:category)
-    @article = Article.new(title: 'My bike trip to Patagonia',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: @category.id)
+    @article.category_id = @category.id
     expect(@article).to be_valid
   end
 
   it 'is not valid without a category' do
-    @author = create(:user)
-    @article = Article.new(title: '',
-                           text: Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false),
-                           image: ' ',
-                           author_id: @author.id,
-                           category_id: nil)
+    @article.category_id = nil
+    expect(@article).to_not be_valid
+  end
+
+  it 'is valid with a url of an image' do
+    @article.image = 'https://images.freeimages.com/images/large-previews/8c5/grey-squirrel-1401263.jpg'
+    expect(@article).to be_valid
+  end
+
+  it 'is valid with a url that does not end in jpg, png or gif' do
+    @article.image = 'https://images.freeimages.com/images/large-previews/8c5/grey-squirrel-1401263'
     expect(@article).to_not be_valid
   end
 
   it 'returns the most voted article' do
     @author = create(:user)
-    @category = create(:category)
-    @article = create(:article, category_id: @category.id, author_id: @author.id)
+    @article = create(:article, author_id: @author.id, category_id: @category.id)
     @votes = create(:vote, user_id: @author.id, article_id: @article.id)
     @votes_by_article = Vote.count_by_article
     expect(Article.most_popular(@votes_by_article).id).to eq(@article.id)

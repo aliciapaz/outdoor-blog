@@ -7,7 +7,7 @@ RSpec.describe 'articles/show', type: :view do
     @article = assign(:article, Article.create!(
                                   title: 'Title',
                                   text: 'MyText',
-                                  image: '',
+                                  image: 'https://images.freeimages.com/images/large-previews/8c5/grey-squirrel-1401263.jpg',
                                   author: @author,
                                   category: @category
                                 ))

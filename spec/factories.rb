@@ -6,13 +6,13 @@ FactoryBot.define do
   end
 
   factory :category, class: 'Category' do
-    name { Faker::Lorem.word }
+    name { Faker::Lorem.characters(number: 7)}
   end
 
   factory :article, class: 'Article' do
     title { Faker::Lorem.sentence(word_count: 2) }
     text { Faker::Lorem.paragraph_by_chars(number: 15, supplemental: false) }
-    image { '' }
+    image { 'https://images.freeimages.com/images/large-previews/8c5/grey-squirrel-1401263.jpg' }
     author_id { rand(1..4) }
     category_id { rand(1..4) }
   end

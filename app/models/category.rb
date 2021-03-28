@@ -7,7 +7,7 @@ class Category < ApplicationRecord
   after_initialize :init
 
   def init
-    self.priority ||= Category.maximum('priority') + 1
+    self.priority ||= Category.maximum('priority').nil? ? 1 : Category.maximum('priority') + 1
   end
 
   def self.prioritize(votes_by_category)
