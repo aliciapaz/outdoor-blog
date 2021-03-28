@@ -12,16 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :title, placeholder: 'Write your title here...', class: 'new-article-title'%>
+    <%= form.text_field :title, placeholder: 'Write your title here...', 
+                                class: 'new-article-title',
+                                required: true, 
+                                minlength: 2,
+                                maxlength: 100
+    %>
   </div>
 
   <div class="field">
-    <%= form.text_area :text, placeholder: 'Write your article here...' %>
+    <%= form.text_area :text, placeholder: 'Write your article here...', 
+                              required: true,
+                              minlength: 2,
+                              maxlength: 3000
+    %>
   </div>
 
   <div class="field">
     <%= form.label :image, 'Image URL' %>
-    <%= form.text_field :image, class: 'image-input' %>
+    <%= form.text_field :image, class: 'image-input', required: true %>
   </div>
 
     <%= form.hidden_field :author_id, value: current_user.id %>
