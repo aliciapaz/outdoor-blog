@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+  <div class='show-container'>
+    <div class='article-top-line flex'>
+      <div class='red-line'></div>
+      <div class='gray-line'></div>
+    </div>
+    <div class= 'article-show-container'>
+      <h1 class='article-show-title'><%= @article.title %></h1>
+      <p>
+      By <%= author_name(@article) %>
+      </p>
+      <%= image_tag @article.image, alt: 'Article image', class: 'article-show-image' %>
+      <p>
+        <%= @article.text %>
+      </p>
+      <p>
+      Category:
+        <%= category_link(@article) %>
+      </p>
+    </div>
+  </div>
+
+<%= link_to 'Back to Category', category_path(@article.category_id) %>
