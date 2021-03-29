@@ -25,11 +25,11 @@ RSpec.feature 'Sign up' do
     quit_driver
   end
 
-  it 'shows register button', :focus do
+  it 'shows register button' do
     expect(page).to have_content('REGISTER')
   end
 
-  it 'allows a user to register with a name', :focus do
+  it 'allows a user to register with a name' do
     visit signup_path
     fill_in 'user[name]', with: 'sponge bob'
     click_on 'Sign up'
