@@ -35,7 +35,6 @@ To get a local copy up and running follow these simple example steps.
 - run `rails db:migrate VERSION=20210322193213`
 - run `rails db:migrate` to migrate the rest of the database
 - run `rails db:seed`
-- start a server with `rails s`
 
 ### Usage
 
@@ -51,6 +50,12 @@ To get a local copy up and running follow these simple example steps.
 ```
     rspec -fd
 ```
+
+### Troubleshooting
+
+If you have problems while creating the database locally, try: 
+- `bin/rails db:environment:set RAILS_ENV=development`
+- `rails db:setup`
 
 ### Deployment
 
