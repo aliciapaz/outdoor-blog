@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Write an article' do
   before(:each) do
     100.times do
@@ -14,7 +15,7 @@ RSpec.feature 'Write an article' do
       create(:article)
     end
 
-    100.times do |index| 
+    100.times do |index|
       create(:vote, user_id: index + 1)
     end
     init_driver
@@ -40,3 +41,4 @@ RSpec.feature 'Write an article' do
     expect(page).to have_content('My Capybara')
   end
 end
+# rubocop:enable Metrics/BlockLength

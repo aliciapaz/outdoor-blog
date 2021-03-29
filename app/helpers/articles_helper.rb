@@ -18,7 +18,7 @@ module ArticlesHelper
 
   def category_link(article)
     link_to Category.find(article.category_id).name.titleize,
-                   category_path(Category.find(article.category_id)),
-                   class: 'category-link'
+            category_path(Category.find(article.category_id)),
+            class: 'category-link'
   end
 end

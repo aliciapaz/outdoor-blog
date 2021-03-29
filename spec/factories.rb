@@ -6,7 +6,7 @@ FactoryBot.define do
   end
 
   factory :category, class: 'Category' do
-    name { Faker::Lorem.characters(number: 7)}
+    name { Faker::Lorem.characters(number: 7) }
   end
 
   factory :article, class: 'Article' do

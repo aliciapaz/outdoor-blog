@@ -14,7 +14,7 @@ RSpec.feature 'Sign up' do
       create(:article)
     end
 
-    100.times do |index| 
+    100.times do |index|
       create(:vote, user_id: index + 1)
     end
     init_driver
