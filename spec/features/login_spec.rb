@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Homepage' do
+RSpec.feature 'Login' do
   before(:each) do
     100.times do
       create(:user)
@@ -17,15 +17,22 @@ RSpec.feature 'Homepage' do
     100.times do |index| 
       create(:vote, user_id: index + 1)
     end
-    get_driver
+    init_driver
+    visit root_path
+  end
+
+  after(:all) do
+    quit_driver
   end
 
   it 'shows login button' do
-    visit root_path
     expect(page).to have_content('LOGIN')
   end
-  it 'shows register button' do
-    visit root_path
-    expect(page).to have_content('REGISTER')
+
+  it 'allows a user to login with a registrated name' do
+    visit login_path
+    fill_in 'name', with: User.last.name
+    click_on 'Login'
+    expect(page).to have_content(User.last.name)
   end
 end

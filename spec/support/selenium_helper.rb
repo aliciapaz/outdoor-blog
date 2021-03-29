@@ -1,10 +1,10 @@
 require 'selenium-webdriver'
 
-def get_driver
-  Capybara.current_driver = :rack_test
+def init_driver
+  Capybara.current_driver = :selenium_chrome
+  @driver = Capybara.current_driver
 end
 
 def quit_driver
-  @driver.quit
   Capybara.use_default_driver
 end
