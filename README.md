@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-Check the [live version](https://warm-earth-97805.herokuapp.com/) of the app!
+Check the [live version](https://sheltered-brushlands-75247.herokuapp.com) of the app!
 
 
 ## Getting Started
