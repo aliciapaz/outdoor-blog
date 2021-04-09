@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 - run `bundle install` to install the dependencies
 * Warning: Because I created the 'Category' model last, migrations must be performed in this order, otherwise they will fail:
 - run `rails db:create`
-- run `rails db:migrate VERSION=20210322193213`
+- run `rails db:migrate:up VERSION=20210322193213`
 - run `rails db:migrate` to migrate the rest of the database
 - run `rails db:seed`
 
